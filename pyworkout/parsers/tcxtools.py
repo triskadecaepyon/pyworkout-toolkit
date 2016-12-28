@@ -21,9 +21,11 @@ class TCXPandas(object):
     """
 
 
-    def __init__(self, tcx_file):
-        # TODO: add a try block here
+    def __init__(self, tcx_file, **kwds):
         self.__filehandle__ = tcx_file
+        self.tcx = None
+        self.activity = None
+        self.dataframe = None
         # TODO: get API version, do API checks, etc
         # TODO: get author version
 
@@ -35,7 +37,6 @@ class TCXPandas(object):
         """
 
         self.tcx = objectify.parse(open(self.__filehandle__))
-        tcx_file = self.tcx.getroot()
         self.activity = self.tcx.getroot().Activities.Activity
         # TODO: Maybe make this privite to the class
         lap_data = self._traverse_laps_()
