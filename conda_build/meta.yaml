@@ -1,0 +1,28 @@
+package:
+    name: pyworkout
+    version: "0.0.1"
+
+source:
+    git_url: ../
+
+requirements:
+  build:
+    - python
+    - numpy
+    - lxml
+    - pandas
+    - setuptools
+
+  run:
+    - python
+    - pandas
+    - lxml
+    - numpy
+
+test:
+  imports:
+    - pyworkout
+
+about:
+  home: https://github.com/triskadecaepyon/pyworkout-toolkit/
+  license: BSD
