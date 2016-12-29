@@ -70,37 +70,37 @@ class TCXPandas(object):
         for trackingpoints in track_items.Trackpoint.getnext():
             # TODO: Write a try block if the item doesn't exist
             return_dict = {}
-            return_dict['time'] = trackingpoints.Time
-            return_dict['altitude'] = trackingpoints.AltitudeMeters
-            return_dict['cadence'] = trackingpoints.Cadence
-            return_dict['distance'] = trackingpoints.DistanceMeters
+            return_dict['time'] = np.str(trackingpoints.Time)
+            return_dict['altitude'] = np.float(trackingpoints.AltitudeMeters)
+            return_dict['cadence'] = np.float(trackingpoints.Cadence)
+            return_dict['distance'] = np.float(trackingpoints.DistanceMeters)
 
             try:
-                return_dict['hr'] = trackingpoints.HeartRateBpm.Value
+                return_dict['hr'] = np.float(trackingpoints.HeartRateBpm.Value)
             except AttributeError:
                 return_dict['hr'] = 0
 
             try:
                 return_dict['latitude'] = \
-                    trackingpoints.Position.LatitudeDegrees
+                    np.float(trackingpoints.Position.LatitudeDegrees)
             except AttributeError:
                 return_dict['latitude'] = 0
 
             try:
                 return_dict['longitude'] = \
-                    trackingpoints.Position.LongitudeDegrees
+                    np.float(trackingpoints.Position.LongitudeDegrees)
             except AttributeError:
                 return_dict['longitude'] = 0
 
             try:
                 return_dict['power'] = \
-                    trackingpoints.Extensions.getchildren()[0].Watts
+                    np.float(trackingpoints.Extensions.getchildren()[0].Watts)
             except AttributeError:
                 return_dict['power'] = 0
 
             try:
                 return_dict['speed'] = \
-                    trackingpoints.Extensions.getchildren()[0].Speed
+                    np.float(trackingpoints.Extensions.getchildren()[0].Speed)
             except AttributeError:
                 return_dict['speed'] = 0
             return_array.append(return_dict)
