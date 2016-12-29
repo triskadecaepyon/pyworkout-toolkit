@@ -43,4 +43,4 @@ pip install -e .
 BSD
 
 ## Scope and goals
-The pyworkout-toolkit aims to assist in the furthering of research in the health/wearables area by providing the tools necessary to analyze collected health data.  The project was created to fill the gap between data aquisition on the device to the end-developer, allowing for algorithm creation, data mining, and visualization once the data has been converted.  
+The pyworkout-toolkit aims to assist in the furthering of research in the health/wearables area by providing the tools necessary to process, correct, and analyze collected data.  The project was created to fill the gap between data aquisition on the device to the end-developer, allowing for algorithm creation, data mining, and visualization once the data has been converted.  Eventual integration with graphing libraries have been planned, with Matplotlib, Bokeh, and Datashader on the list.
