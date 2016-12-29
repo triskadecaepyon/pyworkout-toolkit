@@ -11,6 +11,21 @@ The pyworkout-toolkit is a Python package that provides tools for post-workout a
 - Handling of missing data and conversion/correction of GPS units
 - Exporting to popular formats such as CSV, HDF5
 
+## Examples
+Parsing of TCX files is simple:
+```
+from pyworkout.parsers import tcxtools
+workout_data = tcxtools.TCXPandas('pyworkout/tests/data/test_dataset_1.tcx') # Create the Class Object
+workout_data.parse() # Returns a dataframe
+```
+Other details about the TCX file can be found as well:
+```
+workout_data.get_sport()
+'Biking'
+
+workout_data.get_workout_startime()
+'2016-10-20T22:01:26.000Z'
+```
 ## Dependencies
 - NumPy
 - Pandas
@@ -18,6 +33,11 @@ The pyworkout-toolkit is a Python package that provides tools for post-workout a
 
 ## Installation
 Local installation is supported, with pip and conda-build files included.  Hosting/Availabilty on pip and conda will begin at v0.1.0.
+
+Local installation with source code:
+```
+pip install -e .
+```
 
 ## License
 BSD
