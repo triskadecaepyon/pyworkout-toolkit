@@ -111,12 +111,16 @@ class TCXPandas(object):
         """
         Returns the specified sport of the TCX file
         """
-
-        return self.activity.items()[0][1]
+        if self.activity is None:
+            return None
+        else:
+            return self.activity.items()[0][1]
 
     def get_workout_startime(self):
         """
         Returns the starting timestamp of the specified TCX file
         """
-
-        return self.activity.Lap.items()[0][1]
+        if self.activity is None:
+            return None
+        else:
+            return self.activity.Lap.items()[0][1]
