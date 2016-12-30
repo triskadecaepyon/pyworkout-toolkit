@@ -68,12 +68,23 @@ class TCXPandas(object):
     def _traverse_trackingpoints_(self, track_items):
         return_array = []
         for trackingpoints in track_items.Trackpoint.getnext():
-            # TODO: Write a try block if the item doesn't exist
+            # TODO: Write sport specific checks to prevent extra features
             return_dict = {}
             return_dict['time'] = np.str(trackingpoints.Time)
-            return_dict['altitude'] = np.float(trackingpoints.AltitudeMeters)
-            return_dict['cadence'] = np.float(trackingpoints.Cadence)
-            return_dict['distance'] = np.float(trackingpoints.DistanceMeters)
+            try:
+                return_dict['altitude'] = np.float(trackingpoints.AltitudeMeters)
+            except AttributeError:
+                None
+
+            try:
+                return_dict['cadence'] = np.float(trackingpoints.Cadence)
+            except AttributeError:
+                None
+
+            try:
+                return_dict['distance'] = np.float(trackingpoints.DistanceMeters)
+            except AttributeError:
+                None
 
             try:
                 return_dict['hr'] = np.float(trackingpoints.HeartRateBpm.Value)
