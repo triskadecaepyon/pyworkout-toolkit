@@ -30,6 +30,7 @@ workout_data.get_workout_startime()
 - NumPy
 - Pandas
 - lxml
+- Python 3+ (developed on 3.5)
 
 ## Installation
 Local installation is supported, with pip and conda-build files included.  Hosting/Availabilty on pip and conda will begin at v0.1.0.
