@@ -26,6 +26,14 @@ workout_data.get_sport()
 workout_data.get_workout_startime()
 '2016-10-20T22:01:26.000Z'
 ```
+If opening multiple TCX files for large-scale reporting, it is recommended that [Dask and Dask Delayed](http://dask.pydata.org/en/latest/delayed-overview.html) be used:
+```
+tcx1 = delayed(tcxtools.TCXPandas('workout_1.tcx').parse()) # Delay these calculations
+tcx2 = delayed(tcxtools.TCXPandas('workout_2.tcx').parse()) # Use as many as needed
+total = tcx2.append(tcx1) # Delay the appending of the DataFrames
+total.visualize() # Visualize the task graph to make sure it is truly non-blocking
+total.compute() # Compute it
+```
 ## Dependencies
 - NumPy
 - Pandas
