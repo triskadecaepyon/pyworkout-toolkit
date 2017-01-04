@@ -26,10 +26,19 @@ workout_data.get_sport()
 workout_data.get_workout_startime()
 '2016-10-20T22:01:26.000Z'
 ```
+If opening multiple TCX files for large-scale reporting, it is recommended that [Dask and Dask Delayed](http://dask.pydata.org/en/latest/delayed-overview.html) be used:
+```
+tcx1 = delayed(tcxtools.TCXPandas('workout_1.tcx').parse()) # Delay these calculations
+tcx2 = delayed(tcxtools.TCXPandas('workout_2.tcx').parse()) # Use as many as needed
+total = tcx2.append(tcx1) # Delay the appending of the DataFrames
+total.visualize() # Visualize the task graph to make sure it is truly non-blocking
+total.compute() # Compute it
+```
 ## Dependencies
 - NumPy
 - Pandas
 - lxml
+- Python 3+ (developed on 3.5)
 
 ## Installation
 Local installation is supported, with pip and conda-build files included.  Hosting/Availabilty on pip and conda will begin at v0.1.0.
@@ -43,4 +52,4 @@ pip install -e .
 BSD
 
 ## Scope and goals
-The pyworkout-toolkit aims to assist in the furthering of research in the health/wearables area by providing the tools necessary to analyze collected health data.  The project was created to fill the gap between data aquisition on the device to the end-developer, allowing for algorithm creation, data mining, and visualization once the data has been converted.  
+The pyworkout-toolkit aims to assist in the furthering of research in the health/wearables area by providing the tools necessary to process, correct, and analyze collected data.  The project was created to fill the gap between data aquisition on the device to the end-developer, allowing for algorithm creation, data mining, and visualization once the data has been converted.  Eventual integration with graphing libraries have been planned, with Matplotlib, Bokeh, and Datashader on the list.
