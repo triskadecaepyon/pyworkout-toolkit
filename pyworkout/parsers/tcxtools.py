@@ -50,8 +50,14 @@ class TCXPandas(object):
     def _get_xml_children_(root_xml):
         return root_xml.getchildren()
 
-    def get_activity_timestamp(xml):
-        return xml[0]
+    def get_activity_timestamp(self):
+        """
+        Returns the TCX file timestamp if parsed
+        """
+        if self.activity is None:
+            return None
+        else:
+            return self.activity.Id
 
     def _traverse_laps_(self):
         lap_totals = []
