@@ -34,10 +34,18 @@ from dask import delayed
 tcx1 = delayed(tcxtools.TCXPandas('workout_1.tcx').parse()) # Delay these calculations
 tcx2 = delayed(tcxtools.TCXPandas('workout_2.tcx').parse()) # Use as many as needed
 
-total = dd.from_delayed([tc1, tc2])
+total = dd.from_delayed([tc1, tc2]) # However many files you need
 total.visualize() # Visualize the task graph
 total.compute() # Compute it
+# This returns a dataframe with all the files
 ```
+
+
+## Getting your data
+In order to get your data in TCX format, you will need to export the files from the given service.
+- Instructions for [Strava](https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export)
+- Instructions for [Garmin](https://connect.garmin.com/features/export)
+
 ## Dependencies
 - NumPy
 - Pandas
