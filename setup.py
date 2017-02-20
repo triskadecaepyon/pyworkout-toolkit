@@ -22,8 +22,8 @@ setup(
 
     url='https://github.com/triskadecaepyon/pyworkout-toolkit/',
 
-    author='David Liu',
-    author_email='',
+    maintainer='David Liu',
+    maintainer_email='dcltechnology@gmail.com',
 
     license='BSD',
 
