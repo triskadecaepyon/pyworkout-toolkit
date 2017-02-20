@@ -53,11 +53,15 @@ In order to get your data in TCX format, you will need to export the files from 
 - Python 3+ (developed on 3.5)
 
 ## Installation
-Local installation is supported, with pip and conda-build files included.  Currently available on pip (Conda coming soon)
+Local installation is supported, with pip and conda-build files included.  Currently available on pip and conda.
 
 pip installation:
 ```
 pip install pyworkout-toolkit
+```
+conda installation:
+```
+conda install -c triskadecaepyon pyworkout=0.0.1
 ```
 
 ## License
