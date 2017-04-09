@@ -5,7 +5,7 @@ pyworkout-toolkit: Python tools to process workout data and telemetry
 The pyworkout-toolkit is a Python package that provides tools for post-workout analysis of data or telemetry.  The majority of the tools cater to coaches and invidividuals who wish to utilize the data to generate metrics or exercise machine learning/data mining.  The toolkit provides parsing of the popular .TCX and .GPX formats, along with some general purpose functions that help preprocess the data for metrics, visualization, or machine learning.  
 
 ## Features
-- Parsing of .TCX and .GPX formats; other formats on the way
+- Parsing of .TCX and .GPX formats; other formats being considered
 - Caters to the Pandas DataFrame for analysis flexibility and use in Scikit-Learn
 - Helper functions to correct sport-specific errors in recording
 - Handling of missing data and conversion/correction of GPS units
@@ -46,11 +46,13 @@ In order to get your data in TCX format, you will need to export the files from 
 - Instructions for [Strava](https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export)
 - Instructions for [Garmin](https://connect.garmin.com/features/export)
 
+Please note that the TCX format will make certain workouts absent of important metadata, such as those used to identify swim workouts.  In these cases, specifying workout type upon class instantiation is recommended.  
+
 ## Dependencies
 - NumPy
 - Pandas
 - lxml
-- Python 3+ (developed on 3.5)
+- Python 3+ (developed on 3.5.2)
 
 ## Installation
 Local installation is supported, with pip and conda-build files included.  Currently available on pip and conda.
