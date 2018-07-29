@@ -86,52 +86,52 @@ class TCXPandas(object):
                 return_dict['latitude'] = \
                     np.float(trackingpoints.Position.LatitudeDegrees)
             except AttributeError:
-                pass #TODO# log this
+                pass #TODO log this
 
             try:
                 return_dict['longitude'] = \
                     np.float(trackingpoints.Position.LongitudeDegrees)
             except AttributeError:
-                pass #TODO# log this
+                pass #TODO log this
 
             try:
                 return_dict['altitude'] = np.float(trackingpoints.AltitudeMeters)
             except AttributeError:
-                pass #TODO# log this
+                pass #TODO log this
 
             try:
                 return_dict['distance'] = np.float(trackingpoints.DistanceMeters)
             except AttributeError:
-                pass #TODO# log this
+                pass #TODO log this
 
             try:
                 return_dict['hr'] = np.float(trackingpoints.HeartRateBpm.Value)
             except AttributeError:
-                pass #TODO# log this
+                pass #TODO log this
 
             try:
                 return_dict['speed'] = \
                     np.float(trackingpoints.Extensions[TPXNS].Speed)
             except AttributeError:
-                pass #TODO# log this
+                pass #TODO log this
 
             if self.get_sport == 'Running':
                 try:
                     return_dict['cadence'] = \
                         np.float(trackingpoints.Extensions[TPXNS].RunCadence)
                 except AttributeError:
-                    pass #TODO# log this
+                    pass #TODO log this
             else: # self.activity.attrib['Sport'] == 'Biking':
                 try:
                     return_dict['cadence'] = np.float(trackingpoints.Cadence)
                 except AttributeError:
-                    pass #TODO# log this
+                    pass #TODO log this
 
                 try:
                     return_dict['power'] = \
                         np.float(trackingpoints.Extensions[TPXNS].Watts)
                 except AttributeError:
-                    pass #TODO# log this
+                    pass #TODO log this
 
             return_array.append(return_dict)
         return return_array

@@ -1,6 +1,6 @@
 import unittest
-import importlib
 import pyworkout
+from importlib import util
 from pyworkout.parsers import tcxtools
 """
 Please note that these tests only work in Python 3.5+ at the moment.
@@ -9,7 +9,7 @@ Please note that these tests only work in Python 3.5+ at the moment.
 class TestBasicObject(unittest.TestCase):
 
     def test_import_of_module(self):
-        library = importlib.util.find_spec("pyworkout")
+        library = util.find_spec("pyworkout")
         self.assertTrue(library is not None)
 
     def test_get_sport_none(self):
