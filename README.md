@@ -26,7 +26,7 @@ workout_data.get_sport()
 workout_data.get_workout_startime()
 '2016-10-20T22:01:26.000Z'
 ```
-If opening multiple TCX files for large-scale reporting, it is recommended that [Dask and Dask Delayed](http://dask.pydata.org/en/latest/delayed-overview.html) be used:
+If opening multiple TCX files for large-scale reporting, it is recommended that [Dask and Dask Delayed](https://dask.pydata.org/en/latest/) be used:
 ```
 import dask.dataframe as dd
 from dask import delayed
