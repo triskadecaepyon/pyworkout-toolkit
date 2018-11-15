@@ -48,11 +48,13 @@ In order to get your data in TCX format, you will need to export the files from 
 
 Please note that the TCX format will make certain workouts absent of important metadata, such as those used to identify swim workouts.  In these cases, specifying workout type upon class instantiation is recommended.  
 
+In addition to this, the new Run Dynamics data which debuted a few years ago is not exported via TCX format.  You must have a _relatively expensive_ [Garmin Connect API License](http://developer.garmin.com/garmin-connect-api/overview/) for this.  A bit more info on this is viewable on [stackoverflow](https://stackoverflow.com/questions/35082776/how-to-retrieve-activities-from-garmin-fenix3).  It is unknown whether Suunto's [MovesCount](http://www.movescount.com) allows for this data export.  More info on exporting data from MovesCount [here](https://github.com/cpfair/tapiriik/issues/68) and [here](https://github.com/openambitproject/openambit)
+
 ## Dependencies
 - NumPy
 - Pandas
 - lxml
-- Python 3+ (developed on 3.5.2)
+- Python 3+ (developed originally on 3.5.2)
 
 ## Installation
 Local installation is supported, with pip and conda-build files included.  Currently available on pip and conda.
