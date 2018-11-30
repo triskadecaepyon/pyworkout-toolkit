@@ -64,9 +64,16 @@ pip installation:
 pip install pyworkout-toolkit
 ```
 conda installation:
+
+pyworkout-toolkit has recently been added to conda-forge.  Use the command below to install:
 ```
-conda install -c triskadecaepyon pyworkout=0.0.1
+conda install pyworkout-toolkit
 ```
+If one's conda installation needs the conda-forge channel, use the following command:
+```
+conda config --add channels conda-forge
+```
+
 
 ## License
 BSD
