@@ -59,11 +59,11 @@ In addition to this, the new Run Dynamics data which debuted a few years ago is 
 ## Installation
 Local installation is supported, with pip and conda-build files included.  Currently available on pip and conda.
 
-pip installation:
+### pip installation:
 ```
 pip install pyworkout-toolkit
 ```
-conda installation:
+### conda installation:
 
 pyworkout-toolkit has recently been added to conda-forge.  Use the command below to install:
 ```
