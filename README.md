@@ -1,6 +1,8 @@
 # pyworkout-toolkit
 pyworkout-toolkit: Python tools to process workout data and telemetry
 
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/pyworkout-toolkit-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/pyworkout-toolkit-feedstock)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyworkout-toolkit.svg)](https://anaconda.org/conda-forge/pyworkout-toolkit) [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyworkout-toolkit.svg)](https://anaconda.org/conda-forge/pyworkout-toolkit)
 ## Summary
 The pyworkout-toolkit is a Python package that provides tools for post-workout analysis of data or telemetry.  The majority of the tools cater to coaches and invidividuals who wish to utilize the data to generate metrics or exercise machine learning/data mining.  The toolkit provides parsing of the popular .TCX and .GPX formats, along with some general purpose functions that help preprocess the data for metrics, visualization, or machine learning.  
 
