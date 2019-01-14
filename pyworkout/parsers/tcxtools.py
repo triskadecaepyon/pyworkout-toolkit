@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 from lxml import objectify
 import dateutil.parser
+import logging
 
 TPXNS = "{http://www.garmin.com/xmlschemas/ActivityExtension/v2}TPX"
 LXNS = "{http://www.garmin.com/xmlschemas/ActivityExtension/v2}LX"
@@ -29,6 +30,8 @@ class TCXPandas(object):
         self.tcx = None
         self.activity = None
         self.dataframe = None
+
+        logging.basicConfig(filename="TCXconversion.log", level=logging.DEBUG)
         # TODO: get API version, do API checks, etc
         # TODO: get author version
 
@@ -79,41 +82,46 @@ class TCXPandas(object):
         for trackingpoints in track_items.Trackpoint.getnext():
             # TODO: Write sport specific checks to prevent extra features
             return_dict = {}
-
             return_dict['time'] = dateutil.parser.parse(str(trackingpoints.Time))
 
             try:
                 return_dict['latitude'] = \
                     np.float(trackingpoints.Position.LatitudeDegrees)
             except AttributeError:
-                pass #TODO log this
+                logging.info(
+                    "No latitude info for time {}".format(str(trackingpoints.Time)))
 
             try:
                 return_dict['longitude'] = \
                     np.float(trackingpoints.Position.LongitudeDegrees)
             except AttributeError:
-                pass #TODO log this
+                logging.info(
+                    "No longitude info for time {}".format(str(trackingpoints.Time)))
 
             try:
                 return_dict['altitude'] = np.float(trackingpoints.AltitudeMeters)
             except AttributeError:
-                pass #TODO log this
+                logging.info(
+                    "No altitude info for time {}".format(str(trackingpoints.Time)))
 
             try:
                 return_dict['distance'] = np.float(trackingpoints.DistanceMeters)
             except AttributeError:
-                pass #TODO log this
+                logging.info(
+                    "No distance info for time {}".format(str(trackingpoints.Time)))
 
             try:
                 return_dict['hr'] = np.float(trackingpoints.HeartRateBpm.Value)
             except AttributeError:
-                pass #TODO log this
+                logging.info(
+                    "No hr info for time {}".format(str(trackingpoints.Time)))
 
             try:
                 return_dict['speed'] = \
                     np.float(trackingpoints.Extensions[TPXNS].Speed)
             except AttributeError:
-                pass #TODO log this
+                logging.info(
+                    "No speed info for time {}".format(str(trackingpoints.Time)))
 
             if self.get_sport == 'Running':
                 try:
@@ -125,13 +133,15 @@ class TCXPandas(object):
                 try:
                     return_dict['cadence'] = np.float(trackingpoints.Cadence)
                 except AttributeError:
-                    pass #TODO log this
+                    logging.info(
+                        "No cadence info for time {}".format(str(trackingpoints.Time)))
 
                 try:
                     return_dict['power'] = \
                         np.float(trackingpoints.Extensions[TPXNS].Watts)
                 except AttributeError:
-                    pass #TODO log this
+                    logging.info(
+                        "No power info for time {}".format(str(trackingpoints.Time)))
 
             return_array.append(return_dict)
         return return_array
