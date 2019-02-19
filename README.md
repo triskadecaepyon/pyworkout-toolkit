@@ -1,6 +1,7 @@
 # pyworkout-toolkit
 pyworkout-toolkit: Python tools to process workout data and telemetry
 
+[![Build Status](https://dev.azure.com/triskadecaepyon/pyworkout/_apis/build/status/triskadecaepyon.pyworkout-toolkit?branchName=master)](https://dev.azure.com/triskadecaepyon/pyworkout/_build/latest?definitionId=1&branchName=master)
 [![noarch](https://img.shields.io/circleci/project/github/conda-forge/pyworkout-toolkit-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/pyworkout-toolkit-feedstock)
 [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pyworkout-toolkit.svg)](https://anaconda.org/conda-forge/pyworkout-toolkit) [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pyworkout-toolkit.svg)](https://anaconda.org/conda-forge/pyworkout-toolkit)
 ## Summary
