@@ -76,7 +76,7 @@ class TCXPandas(object):
 
         # New iterator method to align with lxml standard
         return_array = []
-        for laps in activity.Lap:
+        for laps in self.activity.Lap:
             for tracks in laps.Track:
                 for trackingpoints in tracks.Trackpoint:
                     return_dict = {}
