@@ -10,8 +10,8 @@ from lxml import objectify
 import dateutil.parser
 import logging
 
-TPXNS = "{https://www8.garmin.com/xmlschemas/ActivityExtensionv2}TPX"
-LXNS = "{https://www8.garmin.com/xmlschemas/ActivityExtensionv2}LX"
+TPXNS = "{http://www.garmin.com/xmlschemas/ActivityExtension/v2}TPX"
+LXNS = "{http://www.garmin.com/xmlschemas/ActivityExtension/v2}LX"
 
 
 class TCXPandas(object):
