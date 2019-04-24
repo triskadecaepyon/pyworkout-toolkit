@@ -15,7 +15,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='pyworkout-toolkit',
 
-    version='0.0.21',
+    version='0.0.22',
 
     description='Python tools to process workout data and telemetry',
     long_description=long_description,
