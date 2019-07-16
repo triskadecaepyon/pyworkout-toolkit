@@ -17,6 +17,9 @@ The pyworkout-toolkit is a Python package that provides tools for post-workout a
 - Parsing of .GPX files
 - Conversion/correction of GPS units
 
+## Documentation
+- [Documentation](https://pyworkout-toolkit.readthedocs.io/en/latest/index.html) is hosted by readthedocs
+
 ## Examples
 With pyworkout-toolkit, parsing of TCX files is simple:
 ```
